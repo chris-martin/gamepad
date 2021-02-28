@@ -6,6 +6,11 @@ import Gamepad.App.Run (runApp)
 import qualified Gamepad.Demo.BlankWindow
 
 main :: IO ()
-main = getEnv "demo" >>=
+main = lookupEnv "demo" >>=
   \case
-    "blank window" -> runApp Gamepad.Demo.BlankWindow.app
+    Just x -> f x
+    Nothing -> runApp defaultDemo
+
+f "blank window" = runApp Gamepad.Demo.BlankWindow.app
+
+defaultDemo = Gamepad.Demo.BlankWindow.app
