@@ -7,8 +7,13 @@ library
     default-language: Haskell2010
     default-extensions: BlockArguments, LambdaCase, DuplicateRecordFields, NamedFieldPuns, NoImplicitPrelude, OverloadedStrings
     hs-source-dirs: src
-    exposed-modules: Gamepad.App.Type, Gamepad.App.Run, Gamepad.Demo, Gamepad.Demo.BlankWindow
+    exposed-modules: Gamepad.App.Type, Gamepad.App.Run, Gamepad.Demo
     build-depends: base, async, containers, GLUT, unordered-containers, hashable, relude, StateVar, vector
+
+    -- Demos, listed in order
+    exposed-modules:
+        Gamepad.Demo.BlankWindow
+        Gamepad.Demo.Triangle
 
 executable gamepad-demo
     hs-source-dirs: .
