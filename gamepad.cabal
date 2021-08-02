@@ -1,22 +1,22 @@
-cabal-version: 2.0
-build-type: Simple
+cabal-version: 3.0
+
 name: gamepad
 version: 0
 
-library
+build-type: Simple
+
+common base
     default-language: Haskell2010
-    default-extensions: BlockArguments, LambdaCase, DuplicateRecordFields, NamedFieldPuns, NoImplicitPrelude, OverloadedStrings
-    hs-source-dirs: src
-    exposed-modules: Gamepad.App.Type, Gamepad.App.Run, Gamepad.Demo
+    default-extensions: BlockArguments LambdaCase DuplicateRecordFields NamedFieldPuns NoImplicitPrelude OverloadedStrings TypeApplications
     build-depends: base, async, containers, GLUT, unordered-containers, hashable, relude, StateVar, vector
 
-    -- Demos, listed in order
-    exposed-modules:
-        Gamepad.Demo.BlankWindow
-        Gamepad.Demo.Triangle
+library
+    import: base
+    hs-source-dirs: src
+    exposed-modules: Gamepad.Main
 
-executable gamepad-demo
-    hs-source-dirs: .
-    default-language: Haskell2010
-    main-is: demo.hs
+executable gamepad
+    import: base
+    hs-source-dirs: exe
+    main-is: gamepad.hs
     build-depends: base, gamepad
