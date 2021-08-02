@@ -5,11 +5,10 @@ version: 0
 
 library
     default-language: Haskell2010
-    default-extensions: BlockArguments, LambdaCase, DuplicateRecordFields, NamedFieldPuns, NoImplicitPrelude, OverloadedStrings, ScopedTypeVariables
-    ghc-options: -Wall -fno-warn-name-shadowing -fdefer-typed-holes
+    default-extensions: BlockArguments, LambdaCase, DuplicateRecordFields, NamedFieldPuns, NoImplicitPrelude, OverloadedStrings
     hs-source-dirs: src
     exposed-modules: Gamepad.App.Type, Gamepad.App.Run, Gamepad.Demo
-    build-depends: base, async, containers, GLUT, unordered-containers, hashable, relude, vector
+    build-depends: base, async, containers, GLUT, unordered-containers, hashable, relude, StateVar, vector
 
     -- Demos, listed in order
     exposed-modules:
